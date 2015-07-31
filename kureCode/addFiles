@@ -1,0 +1,93 @@
+for i in */ # i level
+do
+    cd $i # eagle, naca, plate
+    for j in */ # j level
+    do
+	cd $j # 300, 3000
+        for k in */ # k level
+	do
+	    cd $k # neg45, neg20, 0, ... , 90
+
+	    #adding extra files depending on cross section
+	    if test $i = "eagle/" 
+		then
+		    #add mesh generation files
+		    cp /afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/requiredFiles/eagle/* .
+	    fi
+
+	    if test $i = "plate/"
+		then
+		    #add mesh generation files
+		    cp /afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/requiredFiles/plate/* .
+	    fi
+
+	    if test $i = "naca2412/"
+		then
+		    #add mesh generation files
+		    cp /afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/requiredFiles/naca2412/* .
+	    fi
+	   
+	    #add required files depending on Reynolds number
+	    
+	    if test $j = "300/"
+		then
+		    #add correct input files
+		    cp /afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/requiredFiles/300/* .
+	    fi
+	    
+	    if test $j = "3000/"
+		then
+		    #add correct input files
+		    cp /afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/requiredFiles/3000/* .
+	    fi 
+		
+	    # #run appropriate matlab code depending on which directory we are in
+	    
+	    # if test $k = "neg45/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(-45); catch; end; quit();'
+	    # fi
+	    
+	    # if test $k = "neg20/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(-20); catch; end; quit();'
+	    # fi
+		
+	    # if test $k = "0/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(0); catch; end; quit();'
+	    # fi
+
+	    # if test $k = "10/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(10); catch; end; quit();'
+	    # fi
+
+	    # if test $k = "20/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(20); catch; end; quit();'
+	    # fi
+
+	    # if test $k = "45/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(45); catch; end; quit();'
+	    # fi
+
+	    # if test $k = "90/"
+	    # 	then
+	    # 	    #generate mesh
+	    # 	    matlab -nosplash -nodesktop -r 'try; main(90); catch; end; quit();'
+	    # fi
+	    
+	    cd ../ # takes you to k level 
+	done
+	cd ../ #takes you to j level
+    done
+    cd ../ #takes you to i level
+done

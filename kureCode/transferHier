@@ -1,0 +1,19 @@
+#probably would be wise to have directories setup on other machine already
+#transfers hier_data_IB2d dir to afs 
+
+for i in */ #eagle, naca2412, plate
+do
+  cd $i
+  for j in */ #300, 3000
+  do
+    cd $j
+    for k in */ #0, 10, ... , neg45
+    do
+      cd $k
+      scp -r hier_data_IB2d ascheets@reu-01.physics.unc.edu:/afs/cas.unc.edu/users/a/s/ascheets/public/projectMain/code/finalPush/results/new/$i/$j/$k
+      cd .. # step out of aoa
+    done
+   cd .. #step out of re
+   done
+  cd .. #step out of cross section
+done

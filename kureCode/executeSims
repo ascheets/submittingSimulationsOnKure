@@ -1,0 +1,29 @@
+for i in */ #for all directories in finalPush
+do
+  cd $i #eagle, naca, plate
+  for j in */ #for all directories in eagle, naca, plate
+  do
+    cd $j #300, 3000
+    for k in */ #for all directories in 300, 3000
+    do
+      cd $k #neg45, neg20, 0, ... , 90
+          
+      #if test $i = "eagle/" && test $k = "0/"
+       # then
+        #  cd ../
+         # continue
+      #fi	
+
+      #compile Makefile
+      make main2d
+
+      #submit job
+      bsub -q week -n 8 mpirun ./main2d input2d
+
+      #jump out of that directory
+      cd ../
+    done
+    cd ../
+  done
+  cd ../
+done

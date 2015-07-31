@@ -1,0 +1,34 @@
+for i in */ #cross section level
+do
+  cd $i
+
+  for j in */ #reynolds number level
+  do
+    cd $j
+    
+    for k in */ #aoa level
+    do
+      cd $k
+      
+      #go into hier dir
+      cd hier_data_IB2d
+      
+      #command for file count
+      pwd
+      ls | wc -l
+
+      #get out of hier dir
+      cd ..
+      
+      #get out of aoa dir
+      cd ..
+      done
+    
+    #get out of Re number dir
+    cd ..
+    done
+  
+  #get out of cross section dir
+  cd ..
+
+done

@@ -1,0 +1,26 @@
+for i in */
+do
+    cd $i
+    mkdir 300
+    cd 300
+    mkdir neg45
+    mkdir neg20
+    mkdir 0
+    mkdir 10
+    mkdir 20
+    mkdir 45
+    mkdir 90
+    cd ../
+    mkdir 3000
+    cd 3000
+    mkdir neg45
+    mkdir neg20
+    mkdir 0
+    mkdir 10
+    mkdir 20
+    mkdir 45
+    mkdir 90
+    cd ../../
+done  
+    
+    
